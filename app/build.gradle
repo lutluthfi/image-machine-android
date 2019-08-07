@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.1"
+    defaultConfig {
+        applicationId "com.example.imagemachine"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Android Support
+    implementation "com.android.support:appcompat-v7:$appcompat_version"
+    implementation "com.android.support:animated-vector-drawable:$animated_vector_drawable_version"
+    implementation "com.android.support:cardview-v7:$cardview_version"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_version"
+    implementation "com.android.support:exifinterface:$exifinterface_version"
+    implementation "com.android.support:recyclerview-v7:$recyclerview_version"
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Loading Indicator
+    implementation "com.wang.avi:library:$loading_indicator_version"
+    // Picasso
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+    // Room
+    implementation "android.arch.persistence.room:rxjava2:$persistance_room_version"
+    implementation "android.arch.persistence.room:runtime:$persistance_room_version"
+    kapt "android.arch.persistence.room:compiler:$persistance_room_version"
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    // Testing
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+repositories {
+    mavenCentral()
+}
