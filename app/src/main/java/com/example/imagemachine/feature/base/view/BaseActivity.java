@@ -13,7 +13,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     @Override
     public void dismissLoadingView() {
         runOnUiThread(() -> {
-            if (this.loadingView.isLoadingDialogDidShow()) {
+            if (this.loadingView.isLoadingViewDidShow()) {
                 this.loadingView.dismissLoadingView();
             }
         });
@@ -21,13 +21,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 
     @Override
     public Boolean isLoadingViewDidShow() {
-        return this.loadingView.isLoadingDialogDidShow();
+        return this.loadingView.isLoadingViewDidShow();
     }
 
     @Override
     public void showLoadingView(@NonNull String message) {
         runOnUiThread(() -> {
-            if (this.loadingView.isLoadingDialogDidShow()) {
+            if (this.loadingView.isLoadingViewDidShow()) {
                 this.loadingView.dismissLoadingView();
             }
             this.loadingView.showLoadingView(message);

@@ -10,6 +10,10 @@ public abstract class BasePresenter<V extends IBaseView> implements IBasePresent
     @NonNull
     protected Boolean isViewDidAttach = false;
 
+    public BasePresenter(V view) {
+        this.view = view;
+    }
+
     @Override
     public void viewDidAttach() {
         this.isViewDidAttach = true;
