@@ -1,4 +1,6 @@
 package com.example.imagemachine.feature.scanner.view;
 
-public interface IScannerView {
+import com.example.imagemachine.feature.base.view.IBaseView;
+
+public interface IScannerView extends IBaseView {
 }
