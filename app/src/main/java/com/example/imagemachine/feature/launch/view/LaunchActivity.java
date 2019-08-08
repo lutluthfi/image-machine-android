@@ -47,6 +47,7 @@ public class LaunchActivity extends BaseActivity implements ILaunchView {
     @Override
     public void goToMainActivity(@NonNull Bundle bundle) {
         startActivity(MainActivity.startIntent(this));
+        finish();
     }
 
     //

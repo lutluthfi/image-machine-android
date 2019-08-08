@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#004ba0</color>
     <color name="colorAccent">#ec407a</color>
 
-    <color name="colorBackgroundLaunch">#3F3D56</color>
-    <color name="colorWhite">#FFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorText">#212121</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
