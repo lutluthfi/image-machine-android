@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.imagemachine">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".ImageMachineApp"
         android:allowBackup="false"
@@ -27,6 +29,11 @@
 
         <activity
             android:name=".feature.main.view.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".feature.scanner.view.ScannerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
