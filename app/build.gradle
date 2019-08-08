@@ -48,6 +48,8 @@ dependencies {
     // Rx
     implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    // Zxing Barcode Scanner
+    implementation "me.dm7.barcodescanner:zxing:$zxing_version"
     // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

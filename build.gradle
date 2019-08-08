@@ -23,11 +23,12 @@ buildscript {
         // Rx
         rxandroid_version = '2.1.0'
         rxjava2_version = '2.2.0'
+        // ZXing Barcode Scanner
+        zxing_version = '1.9.13'
     }
     repositories {
         google()
         jcenter()
-        
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$gradle_version"
@@ -42,7 +43,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 
