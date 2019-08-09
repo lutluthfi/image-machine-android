@@ -1,7 +1,7 @@
 package com.example.imagemachine.feature.launch.view;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.imagemachine.feature.base.view.IBaseView;
 

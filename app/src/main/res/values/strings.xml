@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Image Machine</string>
 
-    <string name="button_menu_machine_data">Machine Data</string>
+    <string name="button_menu_machine_list">Machine List</string>
     <string name="button_menu_qr_code">QR Code</string>
 </resources>

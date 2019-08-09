@@ -1,6 +1,6 @@
 package com.example.imagemachine.feature.base.view;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public interface IBaseView {
 

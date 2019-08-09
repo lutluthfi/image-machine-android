@@ -1,22 +1,31 @@
 package com.example.imagemachine.feature.base.view;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.imagemachine.utils.LoadingView;
 
 public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
 
+    //
+    // MARK: - Dependencies
+    //
     private LoadingView loadingView;
 
+    //
+    // MARK: - Override Function of Activity Lifecycle
+    //
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.loadingView = new LoadingView(this);
     }
 
+    //
+    // MARK: - Override Function of IBaseView
+    //
     @Override
     public void dismissLoadingView() {
         runOnUiThread(() -> {
@@ -41,4 +50,15 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         });
     }
 
+    //
+    // MARK: - Abstract Function
+    //
+    protected abstract void preparingListener();
+
+    protected abstract void preparingView();
+
+    //
+    // MARK: - Function Static
+    //
+    public static int REQUEST_ID_PERMISSION_CAMERA = 1005;
 }

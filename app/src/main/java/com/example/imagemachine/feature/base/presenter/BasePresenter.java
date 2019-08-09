@@ -1,6 +1,6 @@
 package com.example.imagemachine.feature.base.presenter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.imagemachine.feature.base.view.IBaseView;
 

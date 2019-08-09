@@ -2,8 +2,8 @@ package com.example.imagemachine.feature.launch.view;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.imagemachine.R;
 import com.example.imagemachine.feature.base.view.BaseActivity;
@@ -26,6 +26,8 @@ public class LaunchActivity extends BaseActivity implements ILaunchView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
         this.presenter = new LaunchPresenter<ILaunchView>(this);
+        this.preparingListener();
+        this.preparingView();
     }
 
     @Override
@@ -39,6 +41,17 @@ public class LaunchActivity extends BaseActivity implements ILaunchView {
     protected void onDestroy() {
         this.presenter.viewDidDetach();
         super.onDestroy();
+    }
+
+    //
+    // MARK: - Override Function of BaseActivity
+    //
+    @Override
+    protected void preparingListener() {
+    }
+
+    @Override
+    protected void preparingView() {
     }
 
     //
