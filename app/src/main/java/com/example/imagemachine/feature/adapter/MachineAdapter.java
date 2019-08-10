@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -38,7 +37,17 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.ViewHold
 
     public void addItems(List<Machine> machines) {
         this.machines.addAll(machines);
-        notifyDataSetChanged();
+        this.notifyDataSetChanged();
+    }
+
+    public void clear() {
+        this.machines.clear();
+        this.notifyDataSetChanged();
+    }
+
+    public void removeItem(Machine machine) {
+        this.machines.remove(machine);
+        this.notifyDataSetChanged();
     }
 
     @NonNull
@@ -55,7 +64,9 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.ViewHold
             holder.machineCardView.setOnClickListener(view -> {
                 this.itemClickListener.onItemClickListener(view, this.machines.get(position), position);
             });
+        }
 
+        if (this.removeClickListener != null) {
             holder.removeImageView.setOnClickListener(view -> {
                 this.removeClickListener.onRemoveClickListener(view, this.machines.get(position), position);
             });
@@ -67,7 +78,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.ViewHold
         return this.machines.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements OnItemClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         private CardView machineCardView;
         private TextView nameTextView;
@@ -80,11 +91,6 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.ViewHold
             this.nameTextView = itemView.findViewById(R.id.textViewMachineName);
             this.typeTextView = itemView.findViewById(R.id.textViewMachineType);
             this.removeImageView = itemView.findViewById(R.id.imageViewRemove);
-        }
-
-        @Override
-        public void onItemClickListener(@NonNull View view, @NonNull Machine machine, int position) {
-            Toast.makeText(view.getContext(), machine.getQrCode(), Toast.LENGTH_SHORT).show();
         }
 
         void onBind(Machine machine) {

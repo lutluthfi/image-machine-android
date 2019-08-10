@@ -136,7 +136,9 @@ public class MachineInsertActivity extends BaseActivity implements
 
     @Override
     public void onSuccessInsertMachineData() {
-        Toast.makeText(this, "Success inserted machine data", Toast.LENGTH_SHORT).show();
+        runOnUiThread(() -> {
+            Toast.makeText(this, "Success inserted machine data", Toast.LENGTH_SHORT).show();
+        });
         goToMainActivity();
     }
 
@@ -149,11 +151,15 @@ public class MachineInsertActivity extends BaseActivity implements
             switch (view.getId()) {
                 case R.id.buttonActionSave:
                     if (this.editTextMachineName.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "Name can not be empty", Toast.LENGTH_SHORT).show();
+                        runOnUiThread(() -> {
+                            Toast.makeText(this, "Name can not be empty", Toast.LENGTH_SHORT).show();
+                        });
                         return;
                     }
                     if (this.editTextMachineType.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "Type can not be empty", Toast.LENGTH_SHORT).show();
+                        runOnUiThread(() -> {
+                            Toast.makeText(this, "Type can not be empty", Toast.LENGTH_SHORT).show();
+                        });
                         return;
                     }
 
@@ -166,7 +172,7 @@ public class MachineInsertActivity extends BaseActivity implements
                     this.presenter.onButtonActionSaveClicked(bundle);
                     break;
                 case R.id.textViewMaintainDate:
-                    this.datePickerDialog.show();
+                    runOnUiThread(() -> this.datePickerDialog.show());
                     break;
             }
         }

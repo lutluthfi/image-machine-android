@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface IMachineListView extends IBaseView {
     void bindMachinesToRecycler(@NonNull List<Machine> machines);
+    void onSuccessMachineRemove();
 }
