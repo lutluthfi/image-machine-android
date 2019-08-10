@@ -114,6 +114,7 @@ public class MachineInsertActivity extends BaseActivity implements
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
         if (!this.BUNDLE_BARCODE_VALUE.isEmpty()) {
@@ -145,6 +146,7 @@ public class MachineInsertActivity extends BaseActivity implements
                     bundle.putString(Constant.KEY_NAME, this.editTextMachineName.getText().toString());
                     bundle.putString(Constant.KEY_TYPE, this.editTextMachineType.getText().toString());
                     bundle.putString(Constant.KEY_DATE, this.textViewMaintainDate.getText().toString());
+                    bundle.putString(Constant.KEY_BARCODE_VALUE, this.textViewMachineQrCode.getText().toString());
 
                     this.presenter.onButtonActionSaveClicked(bundle);
                     break;

@@ -63,6 +63,7 @@ public class MachineInsertPresenter<V extends IMachineInsertView> extends BasePr
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(() -> {
+                        Log.d("MachineInsertPresenter", "Inserted");
                         this.view.dismissLoadingView();
                     }, throwable -> {
                         Log.d("MachineInsertPresenter", throwable.getMessage());
