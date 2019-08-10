@@ -9,18 +9,19 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Flowable;
 
 @Dao
 public interface MachineDao {
     @Query(value = "SELECT * FROM machine")
     Flowable<List<Machine>> fetchMachinesAll();
-    @Query(value = "SELECT :id FROM machine LIMIT 1")
-    Flowable<Machine> fetchMachine(@NonNull Integer id);
+    @Query(value = "SELECT * FROM machine WHERE id = :id LIMIT 1")
+    Flowable<Machine> fetchMachine(@NonNull int id);
     @Query(value = "SELECT COUNT(*) from machine")
     int count();
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(@NonNull Machine machine);
+    Completable insert(@NonNull Machine machine);
     @Delete
-    void delete(@NonNull Machine machine);
+    Completable delete(@NonNull Machine machine);
 }

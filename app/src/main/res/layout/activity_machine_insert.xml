@@ -7,7 +7,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -15,7 +16,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorWhite"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -37,6 +39,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
                 android:text=""
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,6 +60,7 @@
                 android:paddingTop="16dp"
                 android:paddingEnd="24dp"
                 android:paddingBottom="16dp"
+                android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +83,7 @@
                 android:paddingTop="16dp"
                 android:paddingEnd="24dp"
                 android:paddingBottom="16dp"
+                android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +106,7 @@
                 android:paddingTop="16dp"
                 android:paddingEnd="24dp"
                 android:paddingBottom="16dp"
+                android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

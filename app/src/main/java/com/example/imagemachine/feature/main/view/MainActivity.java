@@ -85,9 +85,11 @@ public class MainActivity extends BaseActivity implements
             switch (view.getId()) {
                 case R.id.buttonMachineList: {
                     goToMachineListActivity(new Bundle());
+                    break;
                 }
                 case R.id.buttonQrCode: {
                     goToScannerActivity(new Bundle());
+                    break;
                 }
             }
         }
