@@ -20,6 +20,7 @@ import com.example.imagemachine.data.model.LocalMachineDataSource;
 import com.example.imagemachine.feature.base.view.BaseActivity;
 import com.example.imagemachine.feature.machine.insert.presenter.IMachineInsertPresenter;
 import com.example.imagemachine.feature.machine.insert.presenter.MachineInsertPresenter;
+import com.example.imagemachine.feature.main.view.MainActivity;
 import com.example.imagemachine.utils.Constant;
 import com.example.imagemachine.utils.DateUtil;
 
@@ -125,9 +126,23 @@ public class MachineInsertActivity extends BaseActivity implements
     }
 
     //
+    // MARK: - Override Function of IMachineInsertView
+    //
+    @Override
+    public void goToMainActivity() {
+        startActivity(MainActivity.startIntent(this));
+        finish();
+    }
+
+    @Override
+    public void onSuccessInsertMachineData() {
+        Toast.makeText(this, "Success inserted machine data", Toast.LENGTH_SHORT).show();
+        goToMainActivity();
+    }
+
+    //
     // MARK: - Override Function of View OnClickListener
     //
-
     @Override
     public void onClick(View view) {
         if (view != null) {

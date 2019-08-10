@@ -46,7 +46,6 @@ public class MachineInsertPresenter<V extends IMachineInsertView> extends BasePr
     @Override
     public void onButtonActionSaveClicked(@NonNull Bundle bundle) {
         if (this.view != null) {
-            this.view.showLoadingView("Please wait");
 
             String name = bundle.getString(Constant.KEY_NAME);
             String type = bundle.getString(Constant.KEY_TYPE);
@@ -63,8 +62,7 @@ public class MachineInsertPresenter<V extends IMachineInsertView> extends BasePr
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(() -> {
-                        Log.d("MachineInsertPresenter", "Inserted");
-                        this.view.dismissLoadingView();
+                        this.view.onSuccessInsertMachineData();
                     }, throwable -> {
                         Log.d("MachineInsertPresenter", throwable.getMessage());
                     }));
