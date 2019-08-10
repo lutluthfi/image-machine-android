@@ -60,5 +60,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     //
     // MARK: - Function Static
     //
+    public static int REQUEST_ID_IMAGE_GALLERY = 1000;
     public static int REQUEST_ID_PERMISSION_CAMERA = 1005;
+    public static int REQUEST_ID_PERMISSION_READ_STORAGE = 1006;
+    public static int REQUEST_ID_PERMISSION_WRITE_STORAGE = 1007;
 }

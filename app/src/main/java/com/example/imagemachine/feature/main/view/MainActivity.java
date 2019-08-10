@@ -74,6 +74,18 @@ public class MainActivity extends BaseActivity implements
                     new String[]{Manifest.permission.CAMERA},
                     BaseActivity.REQUEST_ID_PERMISSION_CAMERA);
         }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    BaseActivity.REQUEST_ID_PERMISSION_READ_STORAGE);
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    BaseActivity.REQUEST_ID_PERMISSION_WRITE_STORAGE);
+        }
     }
 
     //
