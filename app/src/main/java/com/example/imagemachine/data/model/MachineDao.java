@@ -16,6 +16,10 @@ import io.reactivex.Flowable;
 public interface MachineDao {
     @Query(value = "SELECT * FROM machine")
     Flowable<List<Machine>> fetchMachinesAll();
+    @Query(value = "SELECT * FROM machine ORDER BY name ASC")
+    Flowable<List<Machine>> fetchMachinesAllSortByName();
+    @Query(value = "SELECT * FROM machine ORDER BY type ASC")
+    Flowable<List<Machine>> fetchMachinesAllSortByType();
     @Query(value = "SELECT * FROM machine WHERE id = :id LIMIT 1")
     Flowable<Machine> fetchMachine(@NonNull int id);
     @Query(value = "SELECT COUNT(*) from machine")

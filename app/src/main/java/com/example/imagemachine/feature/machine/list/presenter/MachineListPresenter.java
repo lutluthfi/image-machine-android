@@ -9,10 +9,14 @@ import com.example.imagemachine.data.model.Machine;
 import com.example.imagemachine.feature.base.presenter.BasePresenter;
 import com.example.imagemachine.feature.machine.list.view.IMachineListView;
 
+import java.util.function.Consumer;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MachineListPresenter<V extends IMachineListView> extends BasePresenter<V> implements IMachineListPresenter {
+public class MachineListPresenter<V extends IMachineListView> extends BasePresenter<V> implements
+        IMachineListPresenter {
 
     //
     // MARK: - Dependencies
@@ -57,6 +61,36 @@ public class MachineListPresenter<V extends IMachineListView> extends BasePresen
                     }, throwable -> {
                         Log.d("MachineListPresenter", throwable.getMessage());
                     }));
+        }
+    }
+
+    @Override
+    public void onMachineSortClicked(@NonNull String column) {
+        if (this.view != null) {
+            switch (column) {
+                case "name":
+                    this.compositeDisposable.add(this.machineDataSource
+                            .fetchMachinesAllSortByName()
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(machines -> {
+                                this.view.bindMachinesToRecycler(machines);
+                            }, throwable -> {
+                                Log.d("MachineListPresenter", throwable.getMessage());
+                            }));
+                    break;
+                case "type":
+                    this.compositeDisposable.add(this.machineDataSource
+                            .fetchMachinesAllSortByType()
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(machines -> {
+                                this.view.bindMachinesToRecycler(machines);
+                            }, throwable -> {
+                                Log.d("MachineListPresenter", throwable.getMessage());
+                            }));
+                    break;
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.example.imagemachine.data.model;
 
 import androidx.annotation.NonNull;
-import androidx.room.Query;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -23,7 +22,16 @@ public class LocalMachineDataSource implements MachineDao {
         return this.dao.fetchMachinesAll();
     }
 
-    @Query("SELECT * FROM machine LIMIT 1 WHERE id = :id")
+    @Override
+    public Flowable<List<Machine>> fetchMachinesAllSortByName() {
+        return this.dao.fetchMachinesAllSortByName();
+    }
+
+    @Override
+    public Flowable<List<Machine>> fetchMachinesAllSortByType() {
+        return this.dao.fetchMachinesAllSortByType();
+    }
+
     @Override
     public Flowable<Machine> fetchMachine(@NotNull int id) {
         return this.dao.fetchMachine(id);

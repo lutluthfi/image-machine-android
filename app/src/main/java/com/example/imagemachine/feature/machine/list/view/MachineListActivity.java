@@ -1,6 +1,7 @@
 package com.example.imagemachine.feature.machine.list.view;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
@@ -29,6 +31,11 @@ import java.util.List;
 
 public class MachineListActivity extends BaseActivity implements
         IMachineListView, View.OnClickListener {
+
+    //
+    // MARK: - Variables
+    //
+    private String[] sorts = new String[]{"Name", "Type"};
 
     //
     // MARK: - Dependencies
@@ -127,7 +134,15 @@ public class MachineListActivity extends BaseActivity implements
         if (view != null) {
             switch (view.getId()) {
                 case R.id.fabFilter:
-                    Toast.makeText(this, "Hi", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() -> {
+                        new AlertDialog.Builder(this)
+                                .setCancelable(true)
+                                .setTitle("Sort Alphabetically")
+                                .setItems(this.sorts, (dialogInterface, i) -> {
+                                    this.presenter.onMachineSortClicked(this.sorts[i].toLowerCase());
+                                })
+                                .show();
+                    });
                     break;
             }
         }

@@ -7,4 +7,5 @@ import com.example.imagemachine.feature.base.presenter.IBasePresenter;
 
 public interface IMachineListPresenter extends IBasePresenter {
     void onMachineRemoveClicked(@NonNull Machine machine);
+    void onMachineSortClicked(@NonNull String column);
 }
