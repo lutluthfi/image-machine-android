@@ -44,6 +44,7 @@
 
         <activity
             android:name=".feature.machine.insert.view.MachineInsertActivity"
+            android:parentActivityName=".feature.main.view.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 

@@ -10,8 +10,10 @@ import android.widget.Toast;
 
 import com.example.imagemachine.R;
 import com.example.imagemachine.feature.base.view.BaseActivity;
+import com.example.imagemachine.feature.machine.insert.view.MachineInsertActivity;
 import com.example.imagemachine.feature.scanner.presenter.IScannerPresenter;
 import com.example.imagemachine.feature.scanner.presenter.ScannerPresenter;
+import com.example.imagemachine.utils.Constant;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
@@ -92,11 +94,24 @@ public class ScannerActivity extends BaseActivity implements
     }
 
     //
+    // MARK: - Override Function of IScannerView
+    //
+    @Override
+    public void goToMachineInsertActivity(@NonNull Bundle bundle) {
+        Intent intent = MachineInsertActivity.startIntent(this);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
+    }
+
+    //
     // MARK: - Override Function of ZXingScannerView ResultHandler
     //
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(this, rawResult.getText(), Toast.LENGTH_SHORT).show();
+        Bundle bundle = new Bundle();
+        bundle.putString(Constant.KEY_BARCODE_VALUE, rawResult.getText());
+        goToMachineInsertActivity(bundle);
     }
 
     //
