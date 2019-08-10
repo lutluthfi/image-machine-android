@@ -48,6 +48,16 @@ public class LocalMachineDataSource implements MachineDao {
     }
 
     @Override
+    public Completable update(int id,
+                              @NonNull String name,
+                              @NonNull String type,
+                              @NonNull String qrCode,
+                              @NonNull String image,
+                              @NonNull String date) {
+        return this.dao.update(id, name, type, qrCode, image, date);
+    }
+
+    @Override
     public Completable delete(@NotNull Machine machine) {
         return this.dao.delete(machine);
     }

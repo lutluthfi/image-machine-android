@@ -5,8 +5,10 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "machine")
-public class Machine {
+public class Machine implements Serializable {
 
     @PrimaryKey
     @ColumnInfo(name = "id")
@@ -20,6 +22,9 @@ public class Machine {
 
     @ColumnInfo(name = "qrCode")
     private String qrCode;
+
+    @ColumnInfo(name = "image")
+    private String image;
 
     @ColumnInfo(name = "date")
     private String date;
@@ -54,6 +59,14 @@ public class Machine {
 
     public void setQrCode(String qrCode) {
         this.qrCode = qrCode;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDate() {

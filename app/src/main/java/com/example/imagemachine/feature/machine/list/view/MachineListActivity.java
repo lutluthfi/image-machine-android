@@ -21,8 +21,10 @@ import com.example.imagemachine.data.model.LocalMachineDataSource;
 import com.example.imagemachine.data.model.Machine;
 import com.example.imagemachine.feature.adapter.MachineAdapter;
 import com.example.imagemachine.feature.base.view.BaseActivity;
+import com.example.imagemachine.feature.machine.detail.view.MachineDetailActivity;
 import com.example.imagemachine.feature.machine.list.presenter.IMachineListPresenter;
 import com.example.imagemachine.feature.machine.list.presenter.MachineListPresenter;
+import com.example.imagemachine.utils.Constant;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
@@ -87,7 +89,9 @@ public class MachineListActivity extends BaseActivity implements
     protected void preparingListener() {
         this.floatingActionButton.setOnClickListener(this);
         this.adapter.addItemClickListener((view, machine, position) -> {
-            Toast.makeText(this, machine.getQrCode(), Toast.LENGTH_SHORT).show();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(Constant.KEY_MACHINE, machine);
+            goToMachineDetailActivity(bundle);
         });
         this.adapter.addRemoveClickListener(((view, machine, position) -> {
             this.presenter.onMachineRemoveClicked(machine);
@@ -117,6 +121,13 @@ public class MachineListActivity extends BaseActivity implements
                 this.adapter.addItems(machines);
             }
         });
+    }
+
+    @Override
+    public void goToMachineDetailActivity(@NotNull Bundle bundle) {
+        Intent intent = MachineDetailActivity.startIntent(this);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     @Override

@@ -6,11 +6,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.example.imagemachine.R;
 import com.example.imagemachine.feature.base.view.BaseActivity;
-import com.example.imagemachine.feature.machine.insert.view.MachineInsertActivity;
+import com.example.imagemachine.feature.machine.detail.view.MachineDetailActivity;
 import com.example.imagemachine.feature.scanner.presenter.IScannerPresenter;
 import com.example.imagemachine.feature.scanner.presenter.ScannerPresenter;
 import com.example.imagemachine.utils.Constant;
@@ -98,7 +97,7 @@ public class ScannerActivity extends BaseActivity implements
     //
     @Override
     public void goToMachineInsertActivity(@NonNull Bundle bundle) {
-        Intent intent = MachineInsertActivity.startIntent(this);
+        Intent intent = MachineDetailActivity.startIntent(this);
         intent.putExtras(bundle);
         startActivity(intent);
         finish();
